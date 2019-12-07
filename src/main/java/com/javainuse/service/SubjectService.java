@@ -2,6 +2,7 @@ package com.javainuse.service;
 
 import java.util.List;
 
+import com.javainuse.model.AttributeValue;
 import com.javainuse.model.Subject;
 
 
@@ -10,4 +11,5 @@ public interface SubjectService {
 	void insertSubjects(List<Subject> employees);
 	List<Subject> getAllSubjects();
 	void getSubjectByCode(String code);
+	List<Subject>getSubjectbyValue(AttributeValue attr);
 }

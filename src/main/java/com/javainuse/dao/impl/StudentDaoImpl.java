@@ -17,6 +17,7 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
 import com.javainuse.dao.StudentDao;
+import com.javainuse.model.AttributeValue;
 import com.javainuse.model.Student;
 
 @Repository
@@ -101,5 +102,37 @@ public class StudentDaoImpl extends JdbcDaoSupport implements StudentDao{
 				return emp;
 			}
 		});
+	}
+
+	@Override
+	public List<Student> getStudents(AttributeValue attr) {
+		// TODO Auto-generated method stub
+		String sql;
+		if (attr.getAttribute().equalsIgnoreCase("sem"))
+		{
+			Integer val = Integer.parseInt(attr.getValue());
+			sql = "SELECT * FROM student WHERE " + attr.getAttribute() + "=" + val;
+		}
+		else
+		{
+		sql = "SELECT * FROM student WHERE " + attr.getAttribute() + "=" + attr.getValue();
+		}
+		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
+		
+		List<Student> result = new ArrayList<Student>();
+		for(Map<String, Object> row:rows){
+			Student emp = new Student();
+			emp.setUSN((String)row.get("USN"));
+			emp.setName((String)row.get("Name"));
+			emp.setCategory((String)row.get("Category"));
+			emp.setCity((String)row.get("City"));
+			emp.setbranch((String)row.get("Branch"));
+			emp.setSem((Integer)row.get("Sem"));
+			emp.setGender((String)row.get("Gender"));
+			emp.setDob((String)row.get("dob"));
+			result.add(emp);
+		}
+		
+		return result;
 	}
 }

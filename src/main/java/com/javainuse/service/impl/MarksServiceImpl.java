@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javainuse.dao.MarkDao;
+import com.javainuse.model.AttributeValue;
 import com.javainuse.model.Marks;
 import com.javainuse.service.MarksService;
 
@@ -36,6 +37,18 @@ public class MarksServiceImpl implements MarksService {
 		// TODO Auto-generated method stub
 		Marks marks = marksdao.getMarkByCodeandUSN(code,USN);
 		System.out.println(marks);
+	}
+
+	@Override
+	public List<Marks> getMarksbyValue(AttributeValue attr) {
+		// TODO Auto-generated method stub
+		return marksdao.getMarksbyValue(attr);
+	}
+
+	@Override
+	public Integer getSGPA(AttributeValue attr) {
+		// TODO Auto-generated method stub
+		marksdao.getCGPA(attr);
 	}
 
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.javainuse.model.AttributeValue;
 import com.javainuse.model.Subject;
 import com.javainuse.service.SubjectService;
 
@@ -44,6 +45,20 @@ public class SubjectController {
 		model.addObject("students", students);
 		return model;
 	}
-
-
+	
+	@RequestMapping (value = "/getSubjectbyValues", method = RequestMethod.GET)
+	public ModelAndView showval()
+	{
+		return new ModelAndView("getSubjectbyValue", "attr", new AttributeValue());
+	}
+	
+	@RequestMapping (value = "/getSubjectbyValues", method = RequestMethod.POST)
+	public ModelAndView process(@ModelAttribute("attr") AttributeValue attr)
+	{
+		List <Subject> students = subjectService.getSubjectbyValue(attr);
+		ModelAndView model = new ModelAndView("getSubjects");
+		model.addObject("students", students);
+		return model;
+	}
 }
+

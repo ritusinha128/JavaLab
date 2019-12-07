@@ -101,7 +101,47 @@
         <required>false</required>
         <rtexprvalue>false</rtexprvalue>
     </attribute>
-  </tag>
+  <tag>
+    <name>forEach</name>
+    <tag-class>org.apache.taglibs.standard.tag.el.core.ForEachTag</tag-class>
+    <tei-class>org.apache.taglibs.standard.tei.ForEachTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+	The basic iteration tag, accepting many different
+        collection types and supporting subsetting and other
+        functionality
+    </description>
+    <attribute>
+	<name>items</name>
+	<required>false</required>
+	<rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+	<name>begin</name>
+	<required>false</required>
+	<rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+	<name>end</name>
+	<required>false</required>
+	<rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+	<name>step</name>
+	<required>false</required>
+	<rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+	<name>var</name>
+	<required>false</required>
+	<rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+	<name>varStatus</name>
+	<required>false</required>
+	<rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag></tag>
 
   <tag>
     <name>if</name>
@@ -170,47 +210,7 @@
     </attribute>
   </tag>
 
-  <tag>
-    <name>forEach</name>
-    <tag-class>org.apache.taglibs.standard.tag.el.core.ForEachTag</tag-class>
-    <tei-class>org.apache.taglibs.standard.tei.ForEachTEI</tei-class>
-    <body-content>JSP</body-content>
-    <description>
-	The basic iteration tag, accepting many different
-        collection types and supporting subsetting and other
-        functionality
-    </description>
-    <attribute>
-	<name>items</name>
-	<required>false</required>
-	<rtexprvalue>false</rtexprvalue>
-    </attribute>
-    <attribute>
-	<name>begin</name>
-	<required>false</required>
-	<rtexprvalue>false</rtexprvalue>
-    </attribute>
-    <attribute>
-	<name>end</name>
-	<required>false</required>
-	<rtexprvalue>false</rtexprvalue>
-    </attribute>
-    <attribute>
-	<name>step</name>
-	<required>false</required>
-	<rtexprvalue>false</rtexprvalue>
-    </attribute>
-    <attribute>
-	<name>var</name>
-	<required>false</required>
-	<rtexprvalue>false</rtexprvalue>
-    </attribute>
-    <attribute>
-	<name>varStatus</name>
-	<required>false</required>
-	<rtexprvalue>false</rtexprvalue>
-    </attribute>
-  </tag>
+  
 
   <tag>
     <name>forTokens</name>

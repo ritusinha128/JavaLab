@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javainuse.dao.StudentDao;
+import com.javainuse.model.AttributeValue;
 import com.javainuse.model.Student;
 import com.javainuse.service.StudentService;
 
@@ -34,5 +35,13 @@ public class StudentServiceImpl implements StudentService {
 		Student employee = employeeDao.getStudentById(empId);
 		return (employee);
 	}
+
+	@Override
+	public List<Student> getEmployee(AttributeValue attr) {
+		// TODO Auto-generated method stub
+		return employeeDao.getStudents(attr);
+	}
+	
+	
 
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.javainuse.model.AttributeValue;
 import com.javainuse.model.Student;
 import com.javainuse.service.StudentService;
 
@@ -48,12 +49,18 @@ public class StudentController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/getStudentbyUSN", method = RequestMethod.GET)
-	public ModelAndView showusn(@RequestParam String id)
+	@RequestMapping(value="/getStudentbyValues", method = RequestMethod.GET)
+	public ModelAndView showpage()
 	{
-		ModelAndView model = new ModelAndView ("getStudentbyUSN");
-		Student student = studentService.getEmployeeById(id);
-		model.addObject(student);
+		return new ModelAndView ("getStudentbyValue", "attr", new AttributeValue());
+	}
+	
+	@RequestMapping(value="/getStudentbyValues", method = RequestMethod.POST)
+	public ModelAndView process(@ModelAttribute("attr") AttributeValue attr)
+	{
+		List <Student> students = studentService.getEmployee(attr);
+		ModelAndView model = new ModelAndView("getStudents");
+		model.addObject("students", students);
 		return model;
 	}
 

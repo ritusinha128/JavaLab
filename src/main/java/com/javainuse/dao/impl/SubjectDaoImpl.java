@@ -24,6 +24,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.javainuse.dao.SubjectDao;
+import com.javainuse.model.AttributeValue;
 import com.javainuse.model.Student;
 import com.javainuse.model.Subject;
 
@@ -103,6 +104,34 @@ public class SubjectDaoImpl extends JdbcDaoSupport implements SubjectDao {
 			}
 		});
 		
+	}
+
+	@Override
+	public List<Subject> getSubjectbyValue(AttributeValue attr) {
+		// TODO Auto-generated method stub
+		String sql;
+		if (attr.getAttribute().equalsIgnoreCase("sub_sem") || attr.getAttribute().equalsIgnoreCase("credits"))
+		{
+			Integer val = Integer.parseInt(attr.getValue());
+			sql = "SELECT * FROM subject WHERE " + attr.getAttribute() + "=" + val;
+		}
+		else 
+		{
+		sql = "SELECT * FROM subject WHERE " + attr.getAttribute() + "=" + attr.getValue();
+		}
+		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
+		
+		List<Subject> result = new ArrayList<Subject>();
+		for(Map<String, Object> row:rows){
+			Subject emp = new Subject();
+			emp.setCode((String)row.get("code"));
+			emp.setSub_name((String)row.get("sub_name"));
+			emp.setSub_sem((Integer)row.get("sub_sem"));
+			emp.setCredits((Integer)row.get("credits"));
+			result.add(emp);
+		}
+		
+		return result;
 	}
 
 }

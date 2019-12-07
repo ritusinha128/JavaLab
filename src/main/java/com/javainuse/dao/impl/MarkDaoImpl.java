@@ -17,6 +17,7 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
 import com.javainuse.dao.MarkDao;
+import com.javainuse.model.AttributeValue;
 import com.javainuse.model.Marks;
 import com.javainuse.model.Subject;
 
@@ -96,5 +97,80 @@ public class MarkDaoImpl extends JdbcDaoSupport implements MarkDao {
 			}
 		});
 	}
+
+	@Override
+	public List<Marks> getMarksbyValue(AttributeValue attr) {
+		// TODO Auto-generated method stub
+		String sql;
+		if (attr.getAttribute().equalsIgnoreCase("sem"))
+		{
+			Integer val = Integer.parseInt(attr.getValue());
+			sql = "SELECT * FROM marks WHERE " + attr.getAttribute() + "=" + val;
+		}
+		else
+		{
+		 sql = "SELECT * FROM marks WHERE " + attr.getAttribute() + "=" + attr.getValue();
+		}
+		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
+		
+		List<Marks> result = new ArrayList<Marks>();
+		for(Map<String, Object> row:rows){
+			Marks emp = new Marks();
+			emp.setStudent_USN((String)row.get("Student_USN"));
+			emp.setSub_code((String)row.get("Sub_code"));
+			emp.setSem((Integer)row.get("Sem"));
+			emp.setGrade((String)row.get("Grade"));
+			result.add(emp);
+		}
+		
+		return result;
+	}
+
+	@Override
+	public Integer getCGPA(AttributeValue attr) {
+		// TODO Auto-generated method stub
+		String sql;
+		Integer sgpa = 0;
+		Integer val = Integer.parseInt(attr.getValue());
+		sql = "SELECT Grade, Credits FROM Marks,Subject WHERE Code=Sub_code AND Student_USN=" + attr.getAttribute() + " AND Sem=" + val;
+		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
+		for (Map <String, Object> row:rows)
+		{
+			Integer credits = (Integer)row.get("Credits");
+			String grade = (String)row.get("Grade");
+			if (grade.equals("S+"))
+			{
+				sgpa += 10*credits;
+			}
+			else if (grade.equals("S"))
+			{
+				sgpa += 9*credits;
+			}
+			else if (grade.equals("A"))
+			{
+				sgpa += 8*credits;
+			}
+			else if (grade.equals("B"))
+			{
+				sgpa += 7*credits;
+			}
+			else if (grade.equals("C"))
+			{
+				sgpa += 6*credits;
+			}
+			else if (grade.equals("D"))
+			{
+				sgpa += 4*credits;
+			}
+			else 
+			{
+				sgpa += 0;
+			}
+		}
+		return sgpa;
+		
+	}
+	
+	
 
 }
