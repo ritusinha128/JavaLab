@@ -1,12 +1,24 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<div style="border: 1px solid #ccc; padding: 5px; margin-bottom: 20px;">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-	<a href="${pageContext.request.contextPath}/welcome">Home</a> | &nbsp;
+<div style="border: 3px solid #fff; padding: 5px; margin-bottom: 20px;">
 
-	<a href="${pageContext.request.contextPath}/addNewStudent">Add
-		Employee</a> | &nbsp; <a
-		href="${pageContext.request.contextPath}/getStudents">Show
-		Employees</a>
+	<p style="color:#4c4cff"><a style="color:white; font-size:large" href="${pageContext.request.contextPath}/addNewStudent">
+		Students</a></p>
 
+</div>
+
+<div style="border: 3px solid #fff; padding: 5px; margin-bottom: 20px;">
+		<p style="color:#4c4cff"><a style="color:white;font-size:large "href="${pageContext.request.contextPath}/addNewSubject">
+		Subjects</a> </p>
+
+</div>
+
+
+<div style="border: 3px solid #fff; padding: 5px; margin-bottom: 20px;">
+		<p style="color:#4c4cff"><a style="color:white;font-size:large" href="${pageContext.request.contextPath}/addNewMark">
+		Marks</a> </p>
 </div>

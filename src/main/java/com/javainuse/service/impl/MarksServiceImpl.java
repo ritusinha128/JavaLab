@@ -48,7 +48,7 @@ public class MarksServiceImpl implements MarksService {
 	@Override
 	public Integer getSGPA(AttributeValue attr) {
 		// TODO Auto-generated method stub
-		marksdao.getCGPA(attr);
+		return marksdao.getCGPA(attr);
 	}
 
 }

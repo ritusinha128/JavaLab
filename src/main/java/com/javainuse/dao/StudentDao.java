@@ -11,4 +11,5 @@ public interface StudentDao {
 	List<Student> getAllStudents();
 	Student getStudentById(String empId);
 	List<Student> getStudents(AttributeValue attr);
+	void deleteStudents (Student attr);
 }

@@ -11,4 +11,5 @@ public interface StudentService {
 	List<Student> getAllEmployees();
 	Student getEmployeeById(String empid);
 	List <Student> getEmployee(AttributeValue attr);
+	void deleteStudent(Student attr);
 }

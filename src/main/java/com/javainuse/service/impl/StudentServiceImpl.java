@@ -41,6 +41,12 @@ public class StudentServiceImpl implements StudentService {
 		// TODO Auto-generated method stub
 		return employeeDao.getStudents(attr);
 	}
+
+	@Override
+	public void deleteStudent(Student attr) {
+		// TODO Auto-generated method stub
+		employeeDao.deleteStudents(attr);
+	}
 	
 	
 

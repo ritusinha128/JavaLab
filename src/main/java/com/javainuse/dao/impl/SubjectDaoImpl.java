@@ -117,7 +117,7 @@ public class SubjectDaoImpl extends JdbcDaoSupport implements SubjectDao {
 		}
 		else 
 		{
-		sql = "SELECT * FROM subject WHERE " + attr.getAttribute() + "=" + attr.getValue();
+		sql = "SELECT * FROM subject WHERE " + attr.getAttribute() + "=" + "'" + attr.getValue() + "'";
 		}
 		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
 		

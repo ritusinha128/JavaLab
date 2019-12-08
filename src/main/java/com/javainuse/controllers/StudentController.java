@@ -63,5 +63,27 @@ public class StudentController {
 		model.addObject("students", students);
 		return model;
 	}
+	
+	@RequestMapping(value="/deleteStudentbyValues", method=RequestMethod.GET)
+	public ModelAndView showme()
+	{
+		return new ModelAndView("deleteStudentbyValues", "attr", new Student());
+	}
+	
+	@RequestMapping(value="/deleteStudentbyValues", method=RequestMethod.POST)
+	public ModelAndView showmegone(@ModelAttribute("attr") Student attr)
+	{
+		studentService.deleteStudent(attr);
+		List<Student> students = studentService.getAllEmployees();
+		ModelAndView model = new ModelAndView("getStudents");
+		model.addObject("students", students);
+		return model;
+	}
+	
+	@RequestMapping(value="/graph", method=RequestMethod.GET)
+	public ModelAndView showmegraph()
+	{
+		return new ModelAndView("graph");
+	}
 
 }

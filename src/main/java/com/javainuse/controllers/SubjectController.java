@@ -13,6 +13,7 @@ import com.javainuse.model.AttributeValue;
 import com.javainuse.model.Subject;
 import com.javainuse.service.SubjectService;
 
+
 @Controller
 public class SubjectController {
 	@Autowired
@@ -60,5 +61,7 @@ public class SubjectController {
 		model.addObject("students", students);
 		return model;
 	}
+	
+	
 }
 

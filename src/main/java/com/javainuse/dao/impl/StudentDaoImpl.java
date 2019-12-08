@@ -115,7 +115,7 @@ public class StudentDaoImpl extends JdbcDaoSupport implements StudentDao{
 		}
 		else
 		{
-		sql = "SELECT * FROM student WHERE " + attr.getAttribute() + "=" + attr.getValue();
+		sql = "SELECT * FROM student WHERE " + attr.getAttribute() + "=" +  "'" + attr.getValue() + "'";
 		}
 		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
 		
@@ -134,5 +134,13 @@ public class StudentDaoImpl extends JdbcDaoSupport implements StudentDao{
 		}
 		
 		return result;
+	}
+
+	@Override
+	public void deleteStudents(Student attr) {
+		// TODO Auto-generated method stub
+		String sql;
+		sql = "DELETE FROM student WHERE USN=" + "'" + attr.getUSN() + "'";
+		getJdbcTemplate().execute(sql);
 	}
 }

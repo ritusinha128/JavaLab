@@ -109,7 +109,7 @@ public class MarkDaoImpl extends JdbcDaoSupport implements MarkDao {
 		}
 		else
 		{
-		 sql = "SELECT * FROM marks WHERE " + attr.getAttribute() + "=" + attr.getValue();
+		 sql = "SELECT * FROM marks WHERE " + attr.getAttribute() + "=" + "'" + attr.getValue() + "'";
 		}
 		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
 		
