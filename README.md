@@ -47,10 +47,36 @@ spring.datasource.password=root
 
 ->Create the required controller,service, model and dao classes or clone this project and test it locally by running the XAMPP MySQL on localhost
 
+Steps for Cloud Foundry installation(windows):
+
+i) Download the CF CLI installer for Windows.
+ii) Unpack the zip file and double click the executable
+iii)When prompted click Install (default settings)
+iv) Test installation by typing cf in cmd
+
+Setup PWS Console:
+
+i) Sign up for an account  on PivotalCF and complete the required registration and authentication.
+ii) Log in to your account and go to cloud consle 
+
 Steps to deploy to cloud:
 
 ->Create executable jar/war file:
-    i) On eclipse, add the <packaging> 
+    i) On eclipse, add the <packaging> jar </packaging> in the pom.xml file
+     ( In the case of war packaging, we add the <packaging> war </packaging> tag and also the maven war plugin shown below:
+     		<plugin>
+			<artifactId>maven-war-plugin</artifactId>
+			<version>2.4</version>
+			<configuration>
+				<warSourceDirectory>WebContent</warSourceDirectory>
+				<failOnMissingWebXml>false </failOnMissingWebXml>
+			</configuration>
+		</plugin>
+	)
+	
+ii) Run as mvn clean package. (On eclipse, right click on project->run as -> Maven build-> goals: clean package). The jar/war file will be stored in the target folder of the project.
+
+iii) Install the 
 
 
 
