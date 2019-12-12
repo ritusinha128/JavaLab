@@ -12,7 +12,7 @@ Prerequisites:
 ->XAMPP/ MySQL (to test locally)
 ->Pivotal CF 
 
-Steps:
+Steps to create project :
 
 ->If you do not have Eclipse, install STS, else install STS tools from Eclipse Marketplace
 -> Create a new simple Maven Project and add the following dependencies
