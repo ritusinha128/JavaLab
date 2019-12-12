@@ -1,0 +1,8 @@
+applications:
+- name: boot-form-handling
+path: target/boot-form-handling-0.0.1-SNAPSHOT.jar
+domain: cfapps.io
+memory: 1G
+instances: 1 
+services:
+- mysql
