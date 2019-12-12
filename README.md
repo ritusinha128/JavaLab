@@ -59,7 +59,7 @@ Setup PWS Console:
 i) Sign up for an account  on PivotalCF and complete the required registration and authentication.
 ii) Log in to your account and go to cloud console.. Follow the given steps to get an org and space. 
 
-Steps to deploy to cloud:
+Steps to deploy to Cloud as microservice:
 
 ->Create executable jar/war file:
     i) On eclipse, add the <packaging> jar </packaging> in the pom.xml file
