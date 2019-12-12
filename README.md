@@ -57,7 +57,7 @@ iv) Test installation by typing cf in cmd
 Setup PWS Console:
 
 i) Sign up for an account  on PivotalCF and complete the required registration and authentication.
-ii) Log in to your account and go to cloud consle 
+ii) Log in to your account and go to cloud console.. Follow the given steps to get an org and space. 
 
 Steps to deploy to cloud:
 
@@ -76,7 +76,17 @@ Steps to deploy to cloud:
 	
 ii) Run as mvn clean package. (On eclipse, right click on project->run as -> Maven build-> goals: clean package). The jar/war file will be stored in the target folder of the project.
 
-iii) Install the 
+iii) Install the CF CLI as shown above
 
+iv) On the cloud console, go to marketplace and search for Mysql and select the plan as per requirement. 
+
+v) In the maven project, create a manifest.yml file and include the following:
+   
+
+
+vi) Login to the CF CLI through cmd using your credentials. Enter the folder of you project. Use the command as shown 
+     "cf push <app-name> -p target/<name of executable jar with extension>
+
+v) Check the cloud console and get the required url of the project. Test 
 
 
